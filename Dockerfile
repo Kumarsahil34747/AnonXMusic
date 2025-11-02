@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3.10-slim
 
 RUN apt-get update -y && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends ffmpeg curl unzip \
@@ -8,5 +8,5 @@ RUN apt-get update -y && apt-get upgrade -y \
 RUN curl -fsSL https://deno.land/install.sh | sh \
     && ln -s /root/.deno/bin/deno /usr/local/bin/deno
 
-RUN pip3 install -U pip && pip3 install -U -r requirements.txt
+RUN pip3 install -U pip setuptools wheel && pip3 install -U -r requirements.txt
 CMD ["bash", "start"]
