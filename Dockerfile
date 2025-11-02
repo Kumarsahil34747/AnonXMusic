@@ -1,8 +1,8 @@
 FROM python:3.10-slim
 
-# Install curl and clean apt cache
+# Install dependencies and clean cache
 RUN apt-get update -y && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends curl \
+    && apt-get install -y --no-install-recommends curl unzip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
